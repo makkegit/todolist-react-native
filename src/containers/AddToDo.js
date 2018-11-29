@@ -5,41 +5,39 @@ import { StyleSheet,
     TextInput,
     TouchableOpacity,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { AntDesign } from 'react-native-vector-icons';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions'
 
 class AddToDo extends Component {
-    
-        state = {
-            text: '',
+  
+      state = {
+         text: ''
       }
-
-      addTodo = (text) => {
-        this.props.dispatch(addTodo(text))
-        this.setState ({ 
-            text: '',
-        })
-      }
+  addTodo = (text) => {
+      //redux store 
+      this.props.dispatch(addTodo(text))
+      this.setState({ 
+        text: '' 
+      })
+  }
 
   render() {
-    return (
-      <View style={{flexDirection: 'row',  marginHorizontal: 20}}>
-        <TextInput
-            onChangeText = {(text)=> this.setState ({ text })}
-            value = {this.state.text}
-            placeholder="Esim. Tee kotitehtävät"
-            style={{borderWidth: 1, borderColor:'f2f2e1',
-            backgroundColor: '#eaeaea', height: 50, flex: 1, padding: 5}} 
-        />
-        <TouchableOpacity onPress={()=> this.addTodo(this.state.text)}>
-            <View style={{height:50, backgroundColor:'#eaeaea',
-            alignItems: 'center', justifyContent:'center'}}>
-                <Ionicons name="md-add" size={35} style={{color:'#de9595', padding: 10}} />
-            </View>
-        </TouchableOpacity>
-      </View>
-    );
+      return (
+          <View style={{ flexDirection: 'row', marginHorizontal: 20 }}>
+              <TextInput
+                  onChangeText={(text) => this.setState({ text })}
+                  value={this.state.text}
+                  placeholder="Press to write your todo! "
+                  style={{ borderWidth: 1, borderColor: '#f2f2e1', backgroundColor: '#eaeaea', height: 50, flex: 1, padding: 5 }}
+              />
+              <TouchableOpacity onPress={() => this.addTodo(this.state.text)}>
+                  <View style={{ height: 50, alignItems: 'center', justifyContent: 'center' }}>
+                      <AntDesign name="plussquareo" size={65} style={{ color: '#1e2366', padding: 5 }} />
+                  </View>
+              </TouchableOpacity>
+          </View>
+      );
   }
 }
 

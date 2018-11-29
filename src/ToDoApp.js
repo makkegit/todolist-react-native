@@ -10,10 +10,10 @@ class ToDoApp extends Component {
     return (
       <View style={styles.container}>
         <AddToDo/>
+        
         <View>
-
-        </View>
-            <VisibleTodos/>
+          <VisibleTodos/>
+        </View>     
       </View>
     );
   }
